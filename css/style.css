@@ -72,17 +72,17 @@ canvas {
   height: 80px;
   position: absolute;
   top: 40%;
-  left: 1000px;
+  left: 50%;
   margin: -100px 0 0 -100px;
-  animation: move 10s linear infinite;
-  -webkit-animation: move 10s linear infinite;
+  animation: move 5s linear forwards;
+  -webkit-animation: move 5s linear forwards;
+  -webkit-animation-fill-mode: forwards;
 }
 
 @-webkit-keyframes move {
   50% {
-    rotate: 500deg;
-    scale: 1.3;
-    left: -200px;
+    rotate: 250deg;
+    left: -150px;
   }
   100% {
     right: 500px;
@@ -92,11 +92,12 @@ canvas {
 
 @keyframes move {
   50% {
-    transform: rotate(500deg);
+    transform: rotate(600deg);
     scale: 1.3;
-    left: -200px;
+    left: -100px;
   }
   100% {
+    transform: rotate(0deg);
     right: 500px;
     top: 90%;
   }
@@ -163,7 +164,13 @@ h2 .letter {
   .airplane {
     position: absolute;
     top: 45%;
-    left: 150px;
+    left: 45%;
+    animation: responsive-move 5s linear forwards;
+    -webkit-animation: responsive-move 5s linear forwards;
+    -webkit-animation-fill-mode: forwards;
+  }
+  .airplane img {
+    width: 200px;
   }
   h1 {
     position: absolute;
@@ -173,5 +180,31 @@ h2 .letter {
   h2 {
     margin-top: 50%;
     font-size: 1.5em;
+  }
+}
+
+@-webkit-keyframes responsive-move {
+  50% {
+    rotate: 10deg;
+    left: 10px;
+  }
+  100% {
+    right: 500px;
+    top: 90%;
+  }
+}
+
+@keyframes responsive-move {
+  50% {
+    scale: 1.3;
+    left: -100px;
+  }
+  60% {
+    transform: rotate(200deg);
+  }
+  100% {
+    transform: rotate(0deg);
+    right: 500px;
+    top: 90%;
   }
 }
